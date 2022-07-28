@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  petclinic:
+    image: spring-petclinic:latest
+    container_name: petclinic_web
+    restart: unless-stopped
+    depends_on:
+      - mysql_db
+    networks:
+      - clinic_pet_net
+    ports:
+      - "8080:8080"
+
+  mysql_db:
+    image: mysql:5.7.8
+    container_name: petclinic_db
+    restart: unless-stopped
+    networks:
+      - clinic_pet_net
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: petclinic
+      MYSQL_DATABASE: petclinic
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+volumes:
+  mysql_data:
