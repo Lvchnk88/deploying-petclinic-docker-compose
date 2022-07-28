@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   petclinic:
-    image: spring-petclinic:latest
+    image: spring-petclinic:2.7.0-SNAPSHOT
     container_name: petclinic_web
     restart: unless-stopped
     depends_on:
