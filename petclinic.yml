@@ -24,7 +24,9 @@ services:
       MYSQL_DATABASE: petclinic
     volumes:
       - mysql_data:/var/lib/mysql
-
-
+      
+networks:
+  clinic_pet_net:
+  
 volumes:
   mysql_data:
